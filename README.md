@@ -87,6 +87,7 @@ Attach and push to remote
 ```bash
 git remote add origin https://github.com/MonsterXia/PostAPI.git
 git branch -M main
+git checkout main
 git add .
 git commit -m "Initial commit"
 git push -u origin main
