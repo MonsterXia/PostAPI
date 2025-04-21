@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../src/generated/prisma"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model BattleGroupScores {
+  id           Int    @id @default(autoincrement())
+  country      String
+  battle_group String
+  score        Float
+}
+
+model LayerAcceptance {
+  id             Int    @id @default(autoincrement())
+  country_1      String
+  battle_group_1 String
+  country_2      String
+  battle_group_2 String
+  acceptance     Float
+}

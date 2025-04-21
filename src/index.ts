@@ -10,9 +10,10 @@
  *
  * Learn more at https://developers.cloudflare.com/workers/
  */
+import app from "./router";
 
-export default {
-	async fetch(request, env, ctx): Promise<Response> {
-		return new Response('Hello World!');
-	},
-} satisfies ExportedHandler<Env>;
+export interface Env {
+  DB: D1Database;
+}
+
+export default app satisfies ExportedHandler<Env>;

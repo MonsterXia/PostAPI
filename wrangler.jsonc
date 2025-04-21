@@ -7,9 +7,17 @@
 	"name": "post-api",
 	"main": "src/index.ts",
 	"compatibility_date": "2025-04-21",
+	"compatibility_flags": ["nodejs_compat"],
 	"observability": {
 		"enabled": true
-	}
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "post-api",
+			"database_id": "d6f59275-bda8-4164-b7c4-665ab901632c"
+		}
+  	]
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
