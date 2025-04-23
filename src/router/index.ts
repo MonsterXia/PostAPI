@@ -1,7 +1,24 @@
 import { Hono } from "hono";
-import { createBattleGroupScore, getBattleGroupScore } from "../controllers";
+import { createBattleGroupLayerScore, createBattleGroupScore, getFormLayerImporvment } from "../controllers";
+
+const questionareGenerateRoute = new Hono();
+questionareGenerateRoute.get("/layerimprovement", getFormLayerImporvment);
+
+
+const questionareSubmitRoute = new Hono();
+questionareSubmitRoute.post("/battlegroup", createBattleGroupScore);
+questionareSubmitRoute.post("/layeracceptance", createBattleGroupLayerScore);
+
+
+const questionareRoute = new Hono();
+questionareRoute.route("/generate", questionareGenerateRoute);
+questionareRoute.route("/submit", questionareSubmitRoute);
+
+
+// questionareRoute.get("/battlegroup", getBattleGroupScore);
 
 const publicRoute = new Hono();
+publicRoute.route("/questionare", questionareRoute);
 
 // publicRoute.get("/", (c) => c.text("Hello World"))
 // publicRoute.post("/", (c) => c.text("Hello World"))

@@ -1,0 +1,17 @@
+export var validCountryList = {
+    "ADF": ["AirAssault", "CombinedArms", "Mechanized"],
+    "BAF": ["AirAssault", "Armored", "CombinedArms", "Mechanized", "Support"],
+    "CAF": ["AirAssault", "Armored", "CombinedArms", "Mechanized", "Motorized", "Support"],
+    "USA": ["AirAssault", "Armored", "CombinedArms", "LightInfantry", "Mechanized", "Motorized", "Support"],
+    "USMC": ["Armored", "CombinedArms", "Mechanized", "Motorized", "Support", "AmphibiousAssault"],
+    "IMF": ["Armored", "CombinedArms", "LightInfantry", "Mechanized", "Motorized", "Support"],
+    "MEI": ["Armored", "CombinedArms", "LightInfantry", "Mechanized", "Motorized", "Support"],
+    "MEA": ["AirAssault", "Armored", "CombinedArms", "LightInfantry", "Mechanized", "Support"],
+    "TLF": ["AirAssault", "Armored", "CombinedArms", "Mechanized", "Motorized", "Support"],
+    "WPMC": ["AirAssault", "CombinedArms", "LightInfantry"],
+    "PLA": ["AirAssault", "Armored", "CombinedArms", "LightInfantry", "Motorized", "Support"],
+    "PLAAGF": ["Armored", "CombinedArms", "Mechanized", "AmphibiousAssault"],
+    "PLANMC": ["AirAssault", "Armored", "CombinedArms", "LightInfantry", "Mechanized", "Motorized", "Support", "AmphibiousAssault"],
+    "RGF": ["Armored", "CombinedArms", "LightInfantry", "Mechanized", "Motorized", "Support", "AmphibiousAssault"],
+    "VDV": ["AirAssault", "Armored", "CombinedArms", "Mechanized", "Support", "AmphibiousAssault"],
+}

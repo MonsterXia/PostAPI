@@ -123,11 +123,14 @@ exports.Prisma.BattleGroupScoresScalarFieldEnum = {
 
 exports.Prisma.LayerAcceptanceScalarFieldEnum = {
   id: 'id',
-  country_1: 'country_1',
-  battle_group_1: 'battle_group_1',
-  country_2: 'country_2',
-  battle_group_2: 'battle_group_2',
-  acceptance: 'acceptance'
+  level: 'level',
+  mode: 'mode',
+  version: 'version',
+  country1: 'country1',
+  battle_group1: 'battle_group1',
+  country2: 'country2',
+  battle_group2: 'battle_group2',
+  score: 'score'
 };
 
 exports.Prisma.SortOrder = {

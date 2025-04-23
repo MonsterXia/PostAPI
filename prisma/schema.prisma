@@ -21,9 +21,12 @@ model BattleGroupScores {
 
 model LayerAcceptance {
   id             Int    @id @default(autoincrement())
-  country_1      String
-  battle_group_1 String
-  country_2      String
-  battle_group_2 String
-  acceptance     Float
+  level          String
+  mode           String
+  version        String
+  country1      String
+  battle_group1 String
+  country2      String
+  battle_group2 String
+  score     Float
 }

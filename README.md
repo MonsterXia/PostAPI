@@ -18,7 +18,7 @@ cd post-api
 Create database by
 
 ```bash
-npx wrangler d1 create api-post
+npx wrangler d1 create post-api
 ```
 
 Paste output like
@@ -27,7 +27,7 @@ Paste output like
 "d1_databases": [
   {
     "binding": "DB",
-    "database_name": "api-post",
+    "database_name": "post-api",
     "database_id": "<unique-ID-for-your-database>"
   }
 ]
@@ -73,11 +73,11 @@ model user {
 Migrate
 
 ```bash
- npx wrangler d1 migrations create api-post init
+npx wrangler d1 migrations create post-api init
 npx prisma migrate diff --from-empty --to-schema-datamodel ./prisma/schema.prisma --script --output migrations/0001_init.sql
- npx wrangler d1 migrations apply api-post --local
- npx wrangler d1 migrations apply api-post --remote
- npx prisma generate
+npx wrangler d1 migrations apply post-api --local
+npx wrangler d1 migrations apply post-api --remote
+npx prisma generate
 ```
 
 ### GitHub
@@ -93,7 +93,19 @@ git commit -m "Initial commit"
 git push -u origin main
 ```
 
+## Run
 
+### Dev
+
+```bash
+npm run dev
+```
+
+Deploy
+
+```bash
+npm run deploy
+```
 
 
 

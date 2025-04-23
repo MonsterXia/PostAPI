@@ -1996,78 +1996,96 @@ export namespace Prisma {
 
   export type LayerAcceptanceAvgAggregateOutputType = {
     id: number | null
-    acceptance: number | null
+    score: number | null
   }
 
   export type LayerAcceptanceSumAggregateOutputType = {
     id: number | null
-    acceptance: number | null
+    score: number | null
   }
 
   export type LayerAcceptanceMinAggregateOutputType = {
     id: number | null
-    country_1: string | null
-    battle_group_1: string | null
-    country_2: string | null
-    battle_group_2: string | null
-    acceptance: number | null
+    level: string | null
+    mode: string | null
+    version: string | null
+    country1: string | null
+    battle_group1: string | null
+    country2: string | null
+    battle_group2: string | null
+    score: number | null
   }
 
   export type LayerAcceptanceMaxAggregateOutputType = {
     id: number | null
-    country_1: string | null
-    battle_group_1: string | null
-    country_2: string | null
-    battle_group_2: string | null
-    acceptance: number | null
+    level: string | null
+    mode: string | null
+    version: string | null
+    country1: string | null
+    battle_group1: string | null
+    country2: string | null
+    battle_group2: string | null
+    score: number | null
   }
 
   export type LayerAcceptanceCountAggregateOutputType = {
     id: number
-    country_1: number
-    battle_group_1: number
-    country_2: number
-    battle_group_2: number
-    acceptance: number
+    level: number
+    mode: number
+    version: number
+    country1: number
+    battle_group1: number
+    country2: number
+    battle_group2: number
+    score: number
     _all: number
   }
 
 
   export type LayerAcceptanceAvgAggregateInputType = {
     id?: true
-    acceptance?: true
+    score?: true
   }
 
   export type LayerAcceptanceSumAggregateInputType = {
     id?: true
-    acceptance?: true
+    score?: true
   }
 
   export type LayerAcceptanceMinAggregateInputType = {
     id?: true
-    country_1?: true
-    battle_group_1?: true
-    country_2?: true
-    battle_group_2?: true
-    acceptance?: true
+    level?: true
+    mode?: true
+    version?: true
+    country1?: true
+    battle_group1?: true
+    country2?: true
+    battle_group2?: true
+    score?: true
   }
 
   export type LayerAcceptanceMaxAggregateInputType = {
     id?: true
-    country_1?: true
-    battle_group_1?: true
-    country_2?: true
-    battle_group_2?: true
-    acceptance?: true
+    level?: true
+    mode?: true
+    version?: true
+    country1?: true
+    battle_group1?: true
+    country2?: true
+    battle_group2?: true
+    score?: true
   }
 
   export type LayerAcceptanceCountAggregateInputType = {
     id?: true
-    country_1?: true
-    battle_group_1?: true
-    country_2?: true
-    battle_group_2?: true
-    acceptance?: true
+    level?: true
+    mode?: true
+    version?: true
+    country1?: true
+    battle_group1?: true
+    country2?: true
+    battle_group2?: true
+    score?: true
     _all?: true
   }
 
@@ -2159,11 +2177,14 @@ export namespace Prisma {
 
   export type LayerAcceptanceGroupByOutputType = {
     id: number
-    country_1: string
-    battle_group_1: string
-    country_2: string
-    battle_group_2: string
-    acceptance: number
+    level: string
+    mode: string
+    version: string
+    country1: string
+    battle_group1: string
+    country2: string
+    battle_group2: string
+    score: number
     _count: LayerAcceptanceCountAggregateOutputType | null
     _avg: LayerAcceptanceAvgAggregateOutputType | null
     _sum: LayerAcceptanceSumAggregateOutputType | null
@@ -2187,52 +2208,67 @@ export namespace Prisma {
 
   export type LayerAcceptanceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    country_1?: boolean
-    battle_group_1?: boolean
-    country_2?: boolean
-    battle_group_2?: boolean
-    acceptance?: boolean
+    level?: boolean
+    mode?: boolean
+    version?: boolean
+    country1?: boolean
+    battle_group1?: boolean
+    country2?: boolean
+    battle_group2?: boolean
+    score?: boolean
   }, ExtArgs["result"]["layerAcceptance"]>
 
   export type LayerAcceptanceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    country_1?: boolean
-    battle_group_1?: boolean
-    country_2?: boolean
-    battle_group_2?: boolean
-    acceptance?: boolean
+    level?: boolean
+    mode?: boolean
+    version?: boolean
+    country1?: boolean
+    battle_group1?: boolean
+    country2?: boolean
+    battle_group2?: boolean
+    score?: boolean
   }, ExtArgs["result"]["layerAcceptance"]>
 
   export type LayerAcceptanceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    country_1?: boolean
-    battle_group_1?: boolean
-    country_2?: boolean
-    battle_group_2?: boolean
-    acceptance?: boolean
+    level?: boolean
+    mode?: boolean
+    version?: boolean
+    country1?: boolean
+    battle_group1?: boolean
+    country2?: boolean
+    battle_group2?: boolean
+    score?: boolean
   }, ExtArgs["result"]["layerAcceptance"]>
 
   export type LayerAcceptanceSelectScalar = {
     id?: boolean
-    country_1?: boolean
-    battle_group_1?: boolean
-    country_2?: boolean
-    battle_group_2?: boolean
-    acceptance?: boolean
+    level?: boolean
+    mode?: boolean
+    version?: boolean
+    country1?: boolean
+    battle_group1?: boolean
+    country2?: boolean
+    battle_group2?: boolean
+    score?: boolean
   }
 
-  export type LayerAcceptanceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "country_1" | "battle_group_1" | "country_2" | "battle_group_2" | "acceptance", ExtArgs["result"]["layerAcceptance"]>
+  export type LayerAcceptanceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "level" | "mode" | "version" | "country1" | "battle_group1" | "country2" | "battle_group2" | "score", ExtArgs["result"]["layerAcceptance"]>
 
   export type $LayerAcceptancePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "LayerAcceptance"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      country_1: string
-      battle_group_1: string
-      country_2: string
-      battle_group_2: string
-      acceptance: number
+      level: string
+      mode: string
+      version: string
+      country1: string
+      battle_group1: string
+      country2: string
+      battle_group2: string
+      score: number
     }, ExtArgs["result"]["layerAcceptance"]>
     composites: {}
   }
@@ -2657,11 +2693,14 @@ export namespace Prisma {
    */
   interface LayerAcceptanceFieldRefs {
     readonly id: FieldRef<"LayerAcceptance", 'Int'>
-    readonly country_1: FieldRef<"LayerAcceptance", 'String'>
-    readonly battle_group_1: FieldRef<"LayerAcceptance", 'String'>
-    readonly country_2: FieldRef<"LayerAcceptance", 'String'>
-    readonly battle_group_2: FieldRef<"LayerAcceptance", 'String'>
-    readonly acceptance: FieldRef<"LayerAcceptance", 'Float'>
+    readonly level: FieldRef<"LayerAcceptance", 'String'>
+    readonly mode: FieldRef<"LayerAcceptance", 'String'>
+    readonly version: FieldRef<"LayerAcceptance", 'String'>
+    readonly country1: FieldRef<"LayerAcceptance", 'String'>
+    readonly battle_group1: FieldRef<"LayerAcceptance", 'String'>
+    readonly country2: FieldRef<"LayerAcceptance", 'String'>
+    readonly battle_group2: FieldRef<"LayerAcceptance", 'String'>
+    readonly score: FieldRef<"LayerAcceptance", 'Float'>
   }
     
 
@@ -3049,11 +3088,14 @@ export namespace Prisma {
 
   export const LayerAcceptanceScalarFieldEnum: {
     id: 'id',
-    country_1: 'country_1',
-    battle_group_1: 'battle_group_1',
-    country_2: 'country_2',
-    battle_group_2: 'battle_group_2',
-    acceptance: 'acceptance'
+    level: 'level',
+    mode: 'mode',
+    version: 'version',
+    country1: 'country1',
+    battle_group1: 'battle_group1',
+    country2: 'country2',
+    battle_group2: 'battle_group2',
+    score: 'score'
   };
 
   export type LayerAcceptanceScalarFieldEnum = (typeof LayerAcceptanceScalarFieldEnum)[keyof typeof LayerAcceptanceScalarFieldEnum]
@@ -3150,20 +3192,26 @@ export namespace Prisma {
     OR?: LayerAcceptanceWhereInput[]
     NOT?: LayerAcceptanceWhereInput | LayerAcceptanceWhereInput[]
     id?: IntFilter<"LayerAcceptance"> | number
-    country_1?: StringFilter<"LayerAcceptance"> | string
-    battle_group_1?: StringFilter<"LayerAcceptance"> | string
-    country_2?: StringFilter<"LayerAcceptance"> | string
-    battle_group_2?: StringFilter<"LayerAcceptance"> | string
-    acceptance?: FloatFilter<"LayerAcceptance"> | number
+    level?: StringFilter<"LayerAcceptance"> | string
+    mode?: StringFilter<"LayerAcceptance"> | string
+    version?: StringFilter<"LayerAcceptance"> | string
+    country1?: StringFilter<"LayerAcceptance"> | string
+    battle_group1?: StringFilter<"LayerAcceptance"> | string
+    country2?: StringFilter<"LayerAcceptance"> | string
+    battle_group2?: StringFilter<"LayerAcceptance"> | string
+    score?: FloatFilter<"LayerAcceptance"> | number
   }
 
   export type LayerAcceptanceOrderByWithRelationInput = {
     id?: SortOrder
-    country_1?: SortOrder
-    battle_group_1?: SortOrder
-    country_2?: SortOrder
-    battle_group_2?: SortOrder
-    acceptance?: SortOrder
+    level?: SortOrder
+    mode?: SortOrder
+    version?: SortOrder
+    country1?: SortOrder
+    battle_group1?: SortOrder
+    country2?: SortOrder
+    battle_group2?: SortOrder
+    score?: SortOrder
   }
 
   export type LayerAcceptanceWhereUniqueInput = Prisma.AtLeast<{
@@ -3171,20 +3219,26 @@ export namespace Prisma {
     AND?: LayerAcceptanceWhereInput | LayerAcceptanceWhereInput[]
     OR?: LayerAcceptanceWhereInput[]
     NOT?: LayerAcceptanceWhereInput | LayerAcceptanceWhereInput[]
-    country_1?: StringFilter<"LayerAcceptance"> | string
-    battle_group_1?: StringFilter<"LayerAcceptance"> | string
-    country_2?: StringFilter<"LayerAcceptance"> | string
-    battle_group_2?: StringFilter<"LayerAcceptance"> | string
-    acceptance?: FloatFilter<"LayerAcceptance"> | number
+    level?: StringFilter<"LayerAcceptance"> | string
+    mode?: StringFilter<"LayerAcceptance"> | string
+    version?: StringFilter<"LayerAcceptance"> | string
+    country1?: StringFilter<"LayerAcceptance"> | string
+    battle_group1?: StringFilter<"LayerAcceptance"> | string
+    country2?: StringFilter<"LayerAcceptance"> | string
+    battle_group2?: StringFilter<"LayerAcceptance"> | string
+    score?: FloatFilter<"LayerAcceptance"> | number
   }, "id">
 
   export type LayerAcceptanceOrderByWithAggregationInput = {
     id?: SortOrder
-    country_1?: SortOrder
-    battle_group_1?: SortOrder
-    country_2?: SortOrder
-    battle_group_2?: SortOrder
-    acceptance?: SortOrder
+    level?: SortOrder
+    mode?: SortOrder
+    version?: SortOrder
+    country1?: SortOrder
+    battle_group1?: SortOrder
+    country2?: SortOrder
+    battle_group2?: SortOrder
+    score?: SortOrder
     _count?: LayerAcceptanceCountOrderByAggregateInput
     _avg?: LayerAcceptanceAvgOrderByAggregateInput
     _max?: LayerAcceptanceMaxOrderByAggregateInput
@@ -3197,11 +3251,14 @@ export namespace Prisma {
     OR?: LayerAcceptanceScalarWhereWithAggregatesInput[]
     NOT?: LayerAcceptanceScalarWhereWithAggregatesInput | LayerAcceptanceScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"LayerAcceptance"> | number
-    country_1?: StringWithAggregatesFilter<"LayerAcceptance"> | string
-    battle_group_1?: StringWithAggregatesFilter<"LayerAcceptance"> | string
-    country_2?: StringWithAggregatesFilter<"LayerAcceptance"> | string
-    battle_group_2?: StringWithAggregatesFilter<"LayerAcceptance"> | string
-    acceptance?: FloatWithAggregatesFilter<"LayerAcceptance"> | number
+    level?: StringWithAggregatesFilter<"LayerAcceptance"> | string
+    mode?: StringWithAggregatesFilter<"LayerAcceptance"> | string
+    version?: StringWithAggregatesFilter<"LayerAcceptance"> | string
+    country1?: StringWithAggregatesFilter<"LayerAcceptance"> | string
+    battle_group1?: StringWithAggregatesFilter<"LayerAcceptance"> | string
+    country2?: StringWithAggregatesFilter<"LayerAcceptance"> | string
+    battle_group2?: StringWithAggregatesFilter<"LayerAcceptance"> | string
+    score?: FloatWithAggregatesFilter<"LayerAcceptance"> | number
   }
 
   export type BattleGroupScoresCreateInput = {
@@ -3251,63 +3308,84 @@ export namespace Prisma {
   }
 
   export type LayerAcceptanceCreateInput = {
-    country_1: string
-    battle_group_1: string
-    country_2: string
-    battle_group_2: string
-    acceptance: number
+    level: string
+    mode: string
+    version: string
+    country1: string
+    battle_group1: string
+    country2: string
+    battle_group2: string
+    score: number
   }
 
   export type LayerAcceptanceUncheckedCreateInput = {
     id?: number
-    country_1: string
-    battle_group_1: string
-    country_2: string
-    battle_group_2: string
-    acceptance: number
+    level: string
+    mode: string
+    version: string
+    country1: string
+    battle_group1: string
+    country2: string
+    battle_group2: string
+    score: number
   }
 
   export type LayerAcceptanceUpdateInput = {
-    country_1?: StringFieldUpdateOperationsInput | string
-    battle_group_1?: StringFieldUpdateOperationsInput | string
-    country_2?: StringFieldUpdateOperationsInput | string
-    battle_group_2?: StringFieldUpdateOperationsInput | string
-    acceptance?: FloatFieldUpdateOperationsInput | number
+    level?: StringFieldUpdateOperationsInput | string
+    mode?: StringFieldUpdateOperationsInput | string
+    version?: StringFieldUpdateOperationsInput | string
+    country1?: StringFieldUpdateOperationsInput | string
+    battle_group1?: StringFieldUpdateOperationsInput | string
+    country2?: StringFieldUpdateOperationsInput | string
+    battle_group2?: StringFieldUpdateOperationsInput | string
+    score?: FloatFieldUpdateOperationsInput | number
   }
 
   export type LayerAcceptanceUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    country_1?: StringFieldUpdateOperationsInput | string
-    battle_group_1?: StringFieldUpdateOperationsInput | string
-    country_2?: StringFieldUpdateOperationsInput | string
-    battle_group_2?: StringFieldUpdateOperationsInput | string
-    acceptance?: FloatFieldUpdateOperationsInput | number
+    level?: StringFieldUpdateOperationsInput | string
+    mode?: StringFieldUpdateOperationsInput | string
+    version?: StringFieldUpdateOperationsInput | string
+    country1?: StringFieldUpdateOperationsInput | string
+    battle_group1?: StringFieldUpdateOperationsInput | string
+    country2?: StringFieldUpdateOperationsInput | string
+    battle_group2?: StringFieldUpdateOperationsInput | string
+    score?: FloatFieldUpdateOperationsInput | number
   }
 
   export type LayerAcceptanceCreateManyInput = {
     id?: number
-    country_1: string
-    battle_group_1: string
-    country_2: string
-    battle_group_2: string
-    acceptance: number
+    level: string
+    mode: string
+    version: string
+    country1: string
+    battle_group1: string
+    country2: string
+    battle_group2: string
+    score: number
   }
 
   export type LayerAcceptanceUpdateManyMutationInput = {
-    country_1?: StringFieldUpdateOperationsInput | string
-    battle_group_1?: StringFieldUpdateOperationsInput | string
-    country_2?: StringFieldUpdateOperationsInput | string
-    battle_group_2?: StringFieldUpdateOperationsInput | string
-    acceptance?: FloatFieldUpdateOperationsInput | number
+    level?: StringFieldUpdateOperationsInput | string
+    mode?: StringFieldUpdateOperationsInput | string
+    version?: StringFieldUpdateOperationsInput | string
+    country1?: StringFieldUpdateOperationsInput | string
+    battle_group1?: StringFieldUpdateOperationsInput | string
+    country2?: StringFieldUpdateOperationsInput | string
+    battle_group2?: StringFieldUpdateOperationsInput | string
+    score?: FloatFieldUpdateOperationsInput | number
   }
 
   export type LayerAcceptanceUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    country_1?: StringFieldUpdateOperationsInput | string
-    battle_group_1?: StringFieldUpdateOperationsInput | string
-    country_2?: StringFieldUpdateOperationsInput | string
-    battle_group_2?: StringFieldUpdateOperationsInput | string
-    acceptance?: FloatFieldUpdateOperationsInput | number
+    level?: StringFieldUpdateOperationsInput | string
+    mode?: StringFieldUpdateOperationsInput | string
+    version?: StringFieldUpdateOperationsInput | string
+    country1?: StringFieldUpdateOperationsInput | string
+    battle_group1?: StringFieldUpdateOperationsInput | string
+    country2?: StringFieldUpdateOperationsInput | string
+    battle_group2?: StringFieldUpdateOperationsInput | string
+    score?: FloatFieldUpdateOperationsInput | number
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -3428,39 +3506,48 @@ export namespace Prisma {
 
   export type LayerAcceptanceCountOrderByAggregateInput = {
     id?: SortOrder
-    country_1?: SortOrder
-    battle_group_1?: SortOrder
-    country_2?: SortOrder
-    battle_group_2?: SortOrder
-    acceptance?: SortOrder
+    level?: SortOrder
+    mode?: SortOrder
+    version?: SortOrder
+    country1?: SortOrder
+    battle_group1?: SortOrder
+    country2?: SortOrder
+    battle_group2?: SortOrder
+    score?: SortOrder
   }
 
   export type LayerAcceptanceAvgOrderByAggregateInput = {
     id?: SortOrder
-    acceptance?: SortOrder
+    score?: SortOrder
   }
 
   export type LayerAcceptanceMaxOrderByAggregateInput = {
     id?: SortOrder
-    country_1?: SortOrder
-    battle_group_1?: SortOrder
-    country_2?: SortOrder
-    battle_group_2?: SortOrder
-    acceptance?: SortOrder
+    level?: SortOrder
+    mode?: SortOrder
+    version?: SortOrder
+    country1?: SortOrder
+    battle_group1?: SortOrder
+    country2?: SortOrder
+    battle_group2?: SortOrder
+    score?: SortOrder
   }
 
   export type LayerAcceptanceMinOrderByAggregateInput = {
     id?: SortOrder
-    country_1?: SortOrder
-    battle_group_1?: SortOrder
-    country_2?: SortOrder
-    battle_group_2?: SortOrder
-    acceptance?: SortOrder
+    level?: SortOrder
+    mode?: SortOrder
+    version?: SortOrder
+    country1?: SortOrder
+    battle_group1?: SortOrder
+    country2?: SortOrder
+    battle_group2?: SortOrder
+    score?: SortOrder
   }
 
   export type LayerAcceptanceSumOrderByAggregateInput = {
     id?: SortOrder
-    acceptance?: SortOrder
+    score?: SortOrder
   }
 
   export type StringFieldUpdateOperationsInput = {
