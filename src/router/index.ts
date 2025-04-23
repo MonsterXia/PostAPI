@@ -31,9 +31,9 @@ testRoute.post("/", createBattleGroupScore);
 
 const app = new Hono();
 app.use('*', cors({
-  origin: ['https://post.246801357.com', 'http://localhost:5173', 'https://api.post.246801357.com'],
+  origin: ['https://post.246801357.xyz', 'http://localhost:5173', 'https://api.post.246801357.xyz'],
   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowHeaders: ['Content-Type', 'Authorization'],
+  allowHeaders: ['Content-Type', 'Authorization', 'All'],
   credentials: true,
   maxAge: 600,
 }));
