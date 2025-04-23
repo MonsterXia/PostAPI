@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import { cors } from 'hono/cors'
 import { createBattleGroupLayerScore, createBattleGroupScore, getFormLayerImporvment } from "../controllers";
 
 const questionareGenerateRoute = new Hono();
@@ -29,6 +30,13 @@ testRoute.post("/", createBattleGroupScore);
 // testRoute.post("/", createBattleGroupScore).get(getBattleGroupScore);
 
 const app = new Hono();
+app.use('*', cors({
+  origin: ['https://post.246801357.com', 'http://localhost:5173'],
+  allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+  maxAge: 600,
+}));
 
 app.route('/public', publicRoute);
 app.route('/test', testRoute);
