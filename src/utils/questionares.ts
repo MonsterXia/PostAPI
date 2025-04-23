@@ -30,27 +30,32 @@ export const generateBattleGroupLayer = (count: number) => {
     }[] = [];
 
     for (const [layer, groups] of Object.entries(validLayerBattleGroup)) {
-        candidates.push({
-            layer,
-            ...groups
-        });
+        if (!layer.includes("-")) {
+            // rule out the layer with "-" in it
+            // PacificProvingGrounds_USMC-RGF
+            // JensensRange_ADF-PLA
+            candidates.push({
+                layer,
+                ...groups
+            });
+        }
     }
 
     const randomCandidates = getRandomElements(candidates, count);
-    const output : string[] = [];
+    const output: string[] = [];
     for (let i = 0; i < randomCandidates.length; i++) {
         let fist_pick = getRandomElements(randomCandidates[i].team1, 1)[0];
         let alliance1 = getAlliance(fist_pick.split("+")[0]);
         let second_pick = "";
         if (alliance1 !== "independent") {
-            let second_picks = getRandomElements(randomCandidates[i].team2, randomCandidates[i].team2.length);
+            let second_picks: string[] = getRandomElements(randomCandidates[i].team2, randomCandidates[i].team2.length);
             for (let j = 0; j < second_picks.length; j++) {
                 if (getAlliance(second_picks[j].split("+")[0]) !== alliance1) {
                     second_pick = second_picks[j];
                     break;
                 }
             }
-        }else {
+        } else {
             second_pick = getRandomElements(randomCandidates[i].team2, 1)[0];
         }
         output.push(`${randomCandidates[i].layer} ${fist_pick} ${second_pick}`);
@@ -61,7 +66,7 @@ export const generateBattleGroupLayer = (count: number) => {
 export const getAlliance = (country: string) => {
     if (country === "BAF" || country === "USMC" || country === "USA" || country === "CAF" || country === "ADF") {
         return "blue_force";
-    } else if (country === "INS" || country === "MEA" || country === "IMF" ||country === "TLF" || country === "WPMC") {
+    } else if (country === "INS" || country === "MEA" || country === "IMF" || country === "TLF" || country === "WPMC") {
         return "independent";
     } else if (country === "VDV" || country === "RGF") {
         return "red_force";
