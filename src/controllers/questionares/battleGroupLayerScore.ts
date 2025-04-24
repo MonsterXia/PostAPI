@@ -1,24 +1,18 @@
 import { PrismaClient } from "@/prisma/client";
 import { PrismaD1 } from "@prisma/adapter-d1";
-import { processingBattleGroupLayerScore, regBattleGroupLayerScore, regBattleGroupScore, softmaxBattleGroupScore } from "../../utils";
 import { Context } from "hono";
 import { StatusCode } from "@/models";
 
-export const createBattleGroupLayerScore = async (c: Context) => {
+export const adminBattleGroupLayerScore = async (c: Context) => {
     try {
         const adapter = new PrismaD1(c.env.DB);
         const prisma = new PrismaClient({ adapter });
-        const { battle_group_layer_score } = await c.req.json();
-        const processedlist = processingBattleGroupLayerScore(battle_group_layer_score);
-        const valid = regBattleGroupLayerScore(processedlist);
-        if (!valid) {
-            return c.json({message: "Invalid"}, StatusCode.NOT_ACCEPTABLE);
-        }
-        const result = await prisma.layerAcceptance.createMany({
-            data: processedlist,
+        const scores = await prisma.layerAcceptance.findMany({
+            orderBy: {
+                score: "desc",
+            },
         });
-
-        return c.json({message: "Record Received"}, StatusCode.CREATED);
+        return c.json({message: scores}, StatusCode.OK);
     } catch (e) {
         console.error(e);
         return c.json({

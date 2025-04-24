@@ -1,22 +1,11 @@
 import { Hono } from "hono";
 import { cors } from 'hono/cors'
-import { createBattleGroupLayerScore, createBattleGroupScore, getFormLayerImporvment } from "../controllers";
-
-const questionareGenerateRoute = new Hono();
-questionareGenerateRoute.get("/layerimprovement", getFormLayerImporvment);
-
-
-const questionareSubmitRoute = new Hono();
-questionareSubmitRoute.post("/battlegroup", createBattleGroupScore);
-questionareSubmitRoute.post("/layeracceptance", createBattleGroupLayerScore);
-
+import { createFormLayerImporvment, getFormLayerImporvment } from "../controllers";
 
 const questionareRoute = new Hono();
-questionareRoute.route("/generate", questionareGenerateRoute);
-questionareRoute.route("/submit", questionareSubmitRoute);
 
+questionareRoute.get("/layerimprovement", getFormLayerImporvment).post(createFormLayerImporvment);
 
-// questionareRoute.get("/battlegroup", getBattleGroupScore);
 
 const publicRoute = new Hono();
 publicRoute.route("/questionare", questionareRoute);
@@ -25,9 +14,7 @@ publicRoute.route("/questionare", questionareRoute);
 // publicRoute.post("/", (c) => c.text("Hello World"))
 
 const testRoute = new Hono();
-testRoute.post("/", createBattleGroupScore);
-// testRoute.get("/", getBattleGroupScore);
-// testRoute.post("/", createBattleGroupScore).get(getBattleGroupScore);
+
 
 const app = new Hono();
 app.use('*', cors({
