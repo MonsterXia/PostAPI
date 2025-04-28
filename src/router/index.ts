@@ -1,5 +1,6 @@
 import { Hono } from "hono";
 import { cors } from 'hono/cors'
+import { csrf } from 'hono/csrf'
 import { createFormLayerImporvment, getFormLayerImporvment } from "../controllers";
 
 const questionareRoute = new Hono();
@@ -17,13 +18,18 @@ const testRoute = new Hono();
 
 
 const app = new Hono();
-app.use('*', cors({
-  origin: ['https://post.246801357.xyz', 'http://localhost:5173', 'https://api.post.246801357.xyz'],
-  allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowHeaders: ['Content-Type', 'Authorization', 'All'],
-  credentials: true,
-  maxAge: 600,
-}));
+app.use('*',
+  cors({
+    origin: ['https://post.246801357.xyz', 'http://localhost:5173'],
+    allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowHeaders: ['Content-Type', 'Authorization', 'All'],
+    credentials: true,
+    maxAge: 600,
+  }),
+  csrf({
+    origin: ['https://post.246801357.xyz', 'http://localhost:5173'],
+  })
+);
 
 app.route('/public', publicRoute);
 app.route('/test', testRoute);
