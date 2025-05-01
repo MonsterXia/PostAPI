@@ -1,7 +1,8 @@
 import { Hono } from "hono";
 import { cors } from 'hono/cors'
 import { csrf } from 'hono/csrf'
-import { createFormLayerImporvment, getFormLayerImporvment } from "../controllers";
+import { createFormLayerImporvment, getFormLayerImporvment, postSeedReserveSlot } from "../controllers";
+
 
 const questionareRoute = new Hono();
 
@@ -15,6 +16,9 @@ publicRoute.route("/questionare", questionareRoute);
 // publicRoute.post("/", (c) => c.text("Hello World"))
 
 const testRoute = new Hono();
+
+const webhookRoute = new Hono();
+webhookRoute.post("/reserve", postSeedReserveSlot)
 
 
 const app = new Hono();
@@ -32,6 +36,7 @@ app.use('*',
 );
 
 app.route('/public', publicRoute);
+app.route('/webhook', webhookRoute);
 app.route('/test', testRoute);
 
 app.get("/", (c) => {

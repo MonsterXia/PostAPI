@@ -1,0 +1,5 @@
+{
+    "Panel": {
+        "secret_key": "secret_key_for_post_admin_panel"
+    }
+}
