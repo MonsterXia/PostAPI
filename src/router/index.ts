@@ -30,9 +30,9 @@ app.use('*',
     credentials: true,
     maxAge: 600,
   }),
-  csrf({
-    origin: ['https://post.246801357.xyz', 'http://localhost:5173'],
-  })
+  // csrf({
+  //   origin: ['https://post.246801357.xyz', 'http://localhost:5173'],
+  // })
 );
 
 app.route('/public', publicRoute);
