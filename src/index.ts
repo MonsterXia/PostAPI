@@ -14,6 +14,9 @@ import app from "./router";
 
 export interface Env {
   DB: D1Database;
+  POST_SERVER_HOST: string,
+  POST_SERVER_PORT: number,
+  POST_SERVER_PASSWORD: string,
 }
 
 export default app satisfies ExportedHandler<Env>;

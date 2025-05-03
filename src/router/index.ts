@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import { cors } from 'hono/cors'
 import { csrf } from 'hono/csrf'
-import { createFormLayerImporvment, getFormLayerImporvment, postSeedReserveSlot } from "../controllers";
+import { createFormLayerImporvment, getFormLayerImporvment, postSeedReserveSlot, RCONResult } from "../controllers";
 
 
 const questionareRoute = new Hono();
@@ -16,6 +16,7 @@ publicRoute.route("/questionare", questionareRoute);
 // publicRoute.post("/", (c) => c.text("Hello World"))
 
 const testRoute = new Hono();
+testRoute.get("/rcon", RCONResult)
 
 const webhookRoute = new Hono();
 webhookRoute.post("/reserve", postSeedReserveSlot)
@@ -30,9 +31,9 @@ app.use('*',
     credentials: true,
     maxAge: 600,
   }),
-  // csrf({
-  //   origin: ['https://post.246801357.xyz', 'http://localhost:5173'],
-  // })
+  csrf({
+    origin: ['https://post.246801357.xyz', 'http://localhost:5173'],
+  })
 );
 
 app.route('/public', publicRoute);

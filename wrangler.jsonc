@@ -17,7 +17,12 @@
 			"database_name": "post-api",
 			"database_id": "d6f59275-bda8-4164-b7c4-665ab901632c"
 		}
-  	]
+  	],
+	"vars": {
+		"POST_SERVER_HOST" : "202.189.15.108",
+		"POST_SERVER_PORT" : 18009,
+		"POST_SERVER_PASSWORD" : "Post190702",
+	}
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement

@@ -3,3 +3,5 @@ export * from "./questionares/battleGroupLayerScore"
 export * from "./questionares/formLayerImprovment"
 
 export * from "./reserveSlot"
+
+export * from "./test"
