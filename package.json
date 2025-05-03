@@ -14,7 +14,6 @@
 		"@cloudflare/vitest-pool-workers": "^0.7.5",
 		"@cloudflare/workers-types": "^4.20250421.0",
 		"@types/node": "^22.14.1",
-		"patch-package": "^8.0.0",
 		"postinstall-postinstall": "^2.1.0",
 		"prisma": "^6.6.0",
 		"typescript": "^5.5.2",
@@ -26,6 +25,7 @@
 		"@prisma/client": "^6.6.0",
 		"hono": "^4.7.7",
 		"rcon-ts-valve": "^1.0.3",
-		"squad-rcon": "^1.1.8"
+		"squad-rcon": "^1.1.8",
+		"squad-rcon-serverless": "^1.0.0"
 	}
 }
