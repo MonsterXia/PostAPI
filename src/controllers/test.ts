@@ -40,7 +40,7 @@ import { StatusCode } from "@/models";
 //     }
 // }
 
-import { Rcon } from 'squad-rcon';
+import { Rcon } from 'squad-rcon-serverless';
 
 export const RCONResult = async (c: Context) => {
     try {
