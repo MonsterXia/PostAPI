@@ -55,7 +55,8 @@ export const serverAdminLogin = async (c: Context) => {
             httpOnly: true,
             maxAge: 86400,
             expires: new Date(Date.now() + 86400 * 1000),
-            sameSite: "Strict",
+            // sameSite: "Strict",
+            sameSite: "None",
         });
 
         return c.json({
