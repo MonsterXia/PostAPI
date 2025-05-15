@@ -14,9 +14,12 @@ import app from "./router";
 
 export interface Env {
   DB: D1Database;
+  post_api: KVNamespace;
   POST_SERVER_HOST: string,
   POST_SERVER_PORT: number,
   POST_SERVER_PASSWORD: string,
+  RESEND_EMAIL_API_KEY: string,
+  POST_WEB_DOMAIN: string,
 }
 
 export default app satisfies ExportedHandler<Env>;

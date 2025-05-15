@@ -30,3 +30,10 @@ model LayerAcceptance {
   battle_group2 String
   score         Float
 }
+
+model ValidAdmin {
+  username     String @id
+  password     String
+  organization String
+  role         String
+}

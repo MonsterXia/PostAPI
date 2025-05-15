@@ -105,6 +105,13 @@ exports.Prisma.LayerAcceptanceScalarFieldEnum = {
   score: 'score'
 };
 
+exports.Prisma.ValidAdminScalarFieldEnum = {
+  username: 'username',
+  password: 'password',
+  organization: 'organization',
+  role: 'role'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -113,7 +120,8 @@ exports.Prisma.SortOrder = {
 
 exports.Prisma.ModelName = {
   BattleGroupScores: 'BattleGroupScores',
-  LayerAcceptance: 'LayerAcceptance'
+  LayerAcceptance: 'LayerAcceptance',
+  ValidAdmin: 'ValidAdmin'
 };
 /**
  * Create the Client
@@ -165,13 +173,13 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\ngenerator client {\n  provider        = \"prisma-client-js\"\n  output          = \"../src/generated/prisma\"\n  previewFeatures = [\"driverAdapters\"]\n}\n\ndatasource db {\n  provider = \"sqlite\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel BattleGroupScores {\n  id           Int    @id @default(autoincrement())\n  country      String\n  battle_group String\n  score        Float\n}\n\nmodel LayerAcceptance {\n  id            Int    @id @default(autoincrement())\n  level         String\n  mode          String\n  version       String\n  country1      String\n  battle_group1 String\n  country2      String\n  battle_group2 String\n  score         Float\n}\n",
-  "inlineSchemaHash": "0765073e3ab884e18a56113fa0101a1727153bfcc9e3a948a716dab29c444e1b",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\ngenerator client {\n  provider        = \"prisma-client-js\"\n  output          = \"../src/generated/prisma\"\n  previewFeatures = [\"driverAdapters\"]\n}\n\ndatasource db {\n  provider = \"sqlite\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel BattleGroupScores {\n  id           Int    @id @default(autoincrement())\n  country      String\n  battle_group String\n  score        Float\n}\n\nmodel LayerAcceptance {\n  id            Int    @id @default(autoincrement())\n  level         String\n  mode          String\n  version       String\n  country1      String\n  battle_group1 String\n  country2      String\n  battle_group2 String\n  score         Float\n}\n\nmodel ValidAdmin {\n  username     String @id\n  password     String\n  organization String\n  role         String\n}\n",
+  "inlineSchemaHash": "55aba5c0165d68b62e3dfc2bcb93cff4c10ad7a03c505211a18c97b227dc63b4",
   "copyEngine": true
 }
 config.dirname = '/'
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"BattleGroupScores\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"country\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"battle_group\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"score\",\"kind\":\"scalar\",\"type\":\"Float\"}],\"dbName\":null},\"LayerAcceptance\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"level\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"mode\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"version\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"country1\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"battle_group1\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"country2\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"battle_group2\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"score\",\"kind\":\"scalar\",\"type\":\"Float\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"BattleGroupScores\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"country\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"battle_group\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"score\",\"kind\":\"scalar\",\"type\":\"Float\"}],\"dbName\":null},\"LayerAcceptance\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"level\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"mode\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"version\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"country1\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"battle_group1\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"country2\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"battle_group2\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"score\",\"kind\":\"scalar\",\"type\":\"Float\"}],\"dbName\":null},\"ValidAdmin\":{\"fields\":[{\"name\":\"username\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"organization\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"role\",\"kind\":\"scalar\",\"type\":\"String\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
 defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
 config.engineWasm = {
   getRuntime: async () => require('./query_engine_bg.js'),

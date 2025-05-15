@@ -72,12 +72,55 @@ model user {
 
 Migrate
 
+Init
+
 ```bash
 npx wrangler d1 migrations create post-api init
 npx prisma migrate diff --from-empty --to-schema-datamodel ./prisma/schema.prisma --script --output migrations/0001_init.sql
 npx wrangler d1 migrations apply post-api --local
 npx wrangler d1 migrations apply post-api --remote
 npx prisma generate
+```
+
+Adjust
+
+```bash
+npx prisma migrate diff --from-schema-datamodel ./prisma/schema.prisma --to-schema-datamodel ./prisma/schema1.prisma --script --output migrations/000x_adjust.sql
+npx wrangler d1 migrations apply post-api --local
+npx wrangler d1 migrations apply post-api --remote
+npx prisma generate
+```
+
+
+
+##### KV
+
+Create database by
+
+```bash
+npx wrangler kv namespace create post-api
+```
+
+Paste output like
+
+```json
+"kv_namespaces": [
+    {
+      "binding": "<BINDING_NAME>",
+      "id": "<BINDING_ID>"
+    }
+]
+```
+
+to wrangler.jsonc
+
+In index.ts, add the env
+
+```typescript
+interface Env {
+  BINDING_NAME: KVNamespace;
+  // ... other binding types
+}
 ```
 
 ### GitHub
@@ -94,6 +137,8 @@ git push -u origin main
 ```
 
 ## Run
+
+
 
 ### Dev
 

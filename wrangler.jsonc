@@ -7,7 +7,9 @@
 	"name": "post-api",
 	"main": "src/index.ts",
 	"compatibility_date": "2025-04-21",
-	"compatibility_flags": ["nodejs_compat"],
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
 	"observability": {
 		"enabled": true
 	},
@@ -17,25 +19,31 @@
 			"database_name": "post-api",
 			"database_id": "d6f59275-bda8-4164-b7c4-665ab901632c"
 		}
-  	],
+	],
+	"kv_namespaces": [
+		{
+			"binding": "post_api",
+			"id": "2c7bc5d667384911a8540d05cf08cee5"
+		}
+	],
 	"vars": {
-		"POST_SERVER_HOST" : "202.189.15.108",
-		"POST_SERVER_PORT" : 18009,
-		"POST_SERVER_PASSWORD" : "Post190702",
+		"POST_WEB_DOMAIN": "post.246801357.xyz",
+		"POST_SERVER_HOST": "202.189.15.108",
+		"POST_SERVER_PORT": 18009,
+		"POST_SERVER_PASSWORD": "Post190702",
+		"RESEND_EMAIL_API_KEY": "re_bDCwZ42w_GfKGYKaxFBUuFWSJ2upyrgSJ"
 	}
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
 	 */
 	// "placement": { "mode": "smart" },
-
 	/**
 	 * Bindings
 	 * Bindings allow your Worker to interact with resources on the Cloudflare Developer Platform, including
 	 * databases, object storage, AI inference, real-time communication and more.
 	 * https://developers.cloudflare.com/workers/runtime-apis/bindings/
 	 */
-
 	/**
 	 * Environment Variables
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
@@ -45,13 +53,11 @@
 	 * Note: Use secrets to store sensitive data.
 	 * https://developers.cloudflare.com/workers/configuration/secrets/
 	 */
-
 	/**
 	 * Static Assets
 	 * https://developers.cloudflare.com/workers/static-assets/binding/
 	 */
 	// "assets": { "directory": "./public/", "binding": "ASSETS" },
-
 	/**
 	 * Service Bindings (communicate between multiple Workers)
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings

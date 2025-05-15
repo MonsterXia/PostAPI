@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import { cors } from 'hono/cors'
 import { csrf } from 'hono/csrf'
-import { createFormLayerImporvment, getFormLayerImporvment, postSeedReserveSlot, RCONResult } from "../controllers";
+import { createFormLayerImporvment, deleteAdmins, getAllAdmins, getFormLayerImporvment, MailSendingTest, postSeedReserveSlot, RCONResult, ServerAdminRegister, ServerAdminValidation, TryKVRead, TryKVWrite, validNameCheck } from "../controllers";
 
 
 const questionareRoute = new Hono();
@@ -9,18 +9,33 @@ const questionareRoute = new Hono();
 questionareRoute.get("/layerimprovement", getFormLayerImporvment).post(createFormLayerImporvment);
 
 
+const registerRoute = new Hono();
+registerRoute.post("/valid-email", validNameCheck);
+registerRoute.post("/init", ServerAdminRegister)
+registerRoute.post("/validate", ServerAdminValidation);
+
+
 const publicRoute = new Hono();
 publicRoute.route("/questionare", questionareRoute);
+publicRoute.route("/register", registerRoute);
 
 // publicRoute.get("/", (c) => c.text("Hello World"))
 // publicRoute.post("/", (c) => c.text("Hello World"))
 
 const testRoute = new Hono();
 testRoute.get("/rcon", RCONResult)
+// testRoute.post("/email-valid", validNameCheck)
+// testRoute.post("/kv", TryKVWrite)
+// testRoute.get("/kv/:key", TryKVRead)
+// testRoute.post("/email", MailSendingTest)
+// testRoute.get("/admins", getAllAdmins)
+// testRoute.delete("/admin/:username", async (c, next) => {
+//   console.log('DELETE /admin/:username hit with username:', c.req.param("username"));
+//   await next();
+// }, deleteAdmins)
 
 const webhookRoute = new Hono();
 webhookRoute.post("/reserve", postSeedReserveSlot)
-
 
 const app = new Hono();
 app.use('*',

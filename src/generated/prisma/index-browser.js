@@ -133,6 +133,13 @@ exports.Prisma.LayerAcceptanceScalarFieldEnum = {
   score: 'score'
 };
 
+exports.Prisma.ValidAdminScalarFieldEnum = {
+  username: 'username',
+  password: 'password',
+  organization: 'organization',
+  role: 'role'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -141,7 +148,8 @@ exports.Prisma.SortOrder = {
 
 exports.Prisma.ModelName = {
   BattleGroupScores: 'BattleGroupScores',
-  LayerAcceptance: 'LayerAcceptance'
+  LayerAcceptance: 'LayerAcceptance',
+  ValidAdmin: 'ValidAdmin'
 };
 
 /**
