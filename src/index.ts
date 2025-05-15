@@ -20,6 +20,7 @@ export interface Env {
   POST_SERVER_PASSWORD: string,
   RESEND_EMAIL_API_KEY: string,
   POST_WEB_DOMAIN: string,
+  JWT_SECRET: string,
 }
 
 export default app satisfies ExportedHandler<Env>;

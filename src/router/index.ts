@@ -1,19 +1,32 @@
 import { Hono } from "hono";
 import { cors } from 'hono/cors'
 import { csrf } from 'hono/csrf'
-import { createFormLayerImporvment, deleteAdmins, getAllAdmins, getFormLayerImporvment, MailSendingTest, postSeedReserveSlot, RCONResult, ServerAdminRegister, ServerAdminValidation, TryKVRead, TryKVWrite, validNameCheck } from "../controllers";
+import { jwt } from 'hono/jwt'
+import type { JwtVariables } from 'hono/jwt'
+import { createFormLayerImporvment, deleteAdmins, getAllAdmins, getFormLayerImporvment, MailSendingTest, postSeedReserveSlot, RCONResult, serverAdminLogin, ServerAdminRegister, ServerAdminValidation, TryKVRead, TryKVWrite, validNameCheck } from "../controllers";
+import { authMiddleware } from "@/middlewares";
+import { Context } from "hono";
 
+type Variables = JwtVariables
 
 const questionareRoute = new Hono();
 
 questionareRoute.get("/layerimprovement", getFormLayerImporvment).post(createFormLayerImporvment);
-
 
 const registerRoute = new Hono();
 registerRoute.post("/valid-email", validNameCheck);
 registerRoute.post("/init", ServerAdminRegister)
 registerRoute.post("/validate", ServerAdminValidation);
 
+const adminRoute = new Hono<{ Variables: Variables }>()
+adminRoute.post("login", serverAdminLogin)
+adminRoute.use("/*", authMiddleware);
+// adminRoute.post("/login", (c: Context) => {
+//   const info = c.get('jwt-payload');
+//   return c.json({ 
+//     message: info
+//   });
+// })
 
 const publicRoute = new Hono();
 publicRoute.route("/questionare", questionareRoute);
@@ -54,6 +67,7 @@ app.use('*',
 app.route('/public', publicRoute);
 app.route('/webhook', webhookRoute);
 app.route('/test', testRoute);
+app.route('/admin', adminRoute);
 
 app.get("/", (c) => {
   return c.text("Hello World");

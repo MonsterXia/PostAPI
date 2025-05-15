@@ -41,37 +41,45 @@ export const ServerAdminRegister = async (c: Context) => {
             subject: 'Validation link for your server admin account',
             html: `
                 <p>
-                    Dear ${username}:
+                    Dear ${username}:<br/>
+                    致${username}：<br/>
                 </p>
 
                 <p>
-                    Hi,
+                    Hi,<br/>
+                    您好，<br/>
                 </p>
 
                 <p>
-                    You have received this email because someone is trying to registe a server admin account for <strong>${c.env.POST_WEB_DOMAIN}.</strong>
+                    You have received this email because someone is trying to registe a server admin account for <strong>${c.env.POST_WEB_DOMAIN}.</strong><br/>
+                    您收到此电子邮件是因为有人正在尝试向<strong>${c.env.POST_WEB_DOMAIN}.</strong>注册服务器管理员帐户。<br/>
                 </p>
                 
                 <p>
                     If you are the one, please click the link below to verify your email address and complete the registration process:<br/>
+                    如果您是该用户，请单击下面的链接以验证您的电子邮件地址并完成注册过程：<br/>
                     <a href="https://${c.env.POST_WEB_DOMAIN}/server/register/username/${username}/${OTP}"><strong>Click here to verify your email address.</strong></a><br/>
+                    <a href="https://${c.env.POST_WEB_DOMAIN}/server/register/username/${username}/${OTP}"><strong>点击此处验证您的电子邮件地址。</strong></a><br/>
                 </p>
                 
                 <p>
-                    <strong>Attention! This link will expire in 30 minutes and can only be used once.</strong>.
+                    <strong>Attention! This link will expire in 30 minutes and can only be used once.</strong>.<br/>
+                    <strong>注意！此链接将在30分钟后过期，并且只能使用一次。</strong><br/>
                 </p>
                 
                 <p>
-                    If you did not request this, please ignore this email.
+                    If you did not request this, please ignore this email.<br/>
+                    如果您没有请求此操作，请忽略此电子邮件。<br/>
                 </p>
 
                 <p>
-                    Thank you for your cooperation.
+                    Thank you for your cooperation.<br/>
+                    感谢您的合作。<br/>
                 </p>
 
                 <p> 
-                    Best regards,<br/>
-                    The ${c.env.POST_WEB_DOMAIN} Team
+                    Best regards/此致<br/>
+                    ${c.env.POST_WEB_DOMAIN}<br/>
                 </p>
             `
         });
