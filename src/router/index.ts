@@ -3,7 +3,7 @@ import { cors } from 'hono/cors'
 import { csrf } from 'hono/csrf'
 import { jwt } from 'hono/jwt'
 import type { JwtVariables } from 'hono/jwt'
-import { createFormLayerImporvment, deleteAdmins, getAllAdmins, getFormLayerImporvment, MailSendingTest, postSeedReserveSlot, RCONResult, serverAdminLogin, ServerAdminRegister, ServerAdminValidation, TryKVRead, TryKVWrite, validNameCheck } from "../controllers";
+import { createFormLayerImporvment, deleteAdmins, getAllAdmins, getFormLayerImporvment, MailSendingTest, postSeedReserveSlot, RCONResult, serverAdminLogin, ServerAdminRegister, ServerAdminValidation, ServerStatus, TryKVRead, TryKVWrite, validNameCheck } from "../controllers";
 import { authMiddleware } from "@/middlewares";
 import { Context } from "hono";
 
@@ -37,6 +37,7 @@ publicRoute.route("/register", registerRoute);
 
 const testRoute = new Hono();
 testRoute.get("/rcon", RCONResult)
+testRoute.get("/status", ServerStatus)
 // testRoute.post("/email-valid", validNameCheck)
 // testRoute.post("/kv", TryKVWrite)
 // testRoute.get("/kv/:key", TryKVRead)

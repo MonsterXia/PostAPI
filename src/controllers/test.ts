@@ -41,6 +41,46 @@ export const RCONResult = async (c: Context) => {
     }
 }
 
+export const ServerStatus = async (c: Context) => {
+    try {
+        const rcon = new Rcon({
+            id: 1,
+            host: c.env.POST_SERVER_HOST,
+            port: c.env.POST_SERVER_PORT,
+            password: c.env.POST_SERVER_PASSWORD,
+            autoReconnect: false
+        });
+
+        await rcon.init();
+
+        const result = await rcon.execute('ShowServerInfo');
+        rcon.close();
+
+        const resultJson = JSON.parse(result);
+        const layerName = resultJson.MapName_s
+        const gameMode = resultJson.GameMode_s
+        const team1Name = resultJson.TeamOne_s
+        const team2Name = resultJson.TeamTwo_s
+        const playerInfo = resultJson.PlayerCount_I + "/" + resultJson.MaxPlayers
+        const queueInfo = resultJson.PublicQueue_I
+
+        return c.json({
+            layerName: layerName,
+            gameMode: gameMode,
+            team1Name: team1Name,
+            team2Name: team2Name,
+            playerInfo: playerInfo,
+            queueInfo: queueInfo,
+        }, StatusCode.OK);
+    } catch (e: unknown) {
+        console.log(e);
+        return c.json({
+            message: "Error",
+            error: e instanceof Error ? e.message : String(e),
+        }, StatusCode.INTERNAL_SERVER_ERROR);
+    }
+}
+
 export const getAllAdmins = async (c: Context) => {
     try {
         const adapter = new PrismaD1(c.env.DB);
